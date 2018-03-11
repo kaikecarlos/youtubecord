@@ -1,8 +1,9 @@
 
 var {BrowserWindow, app} = require('electron');
-var widevine = require('electron-widevinecdm');
+
 const {Client} = require('discord-rpc');
 const rpc      = new Client({transport: 'ipc'})
+
 let appID = '422113307038580751',
     mainWindow,
     smallImageKey,
@@ -40,7 +41,19 @@ let appID = '422113307038580751',
                 title: document.querySelector('#owner-name.ytd-video-owner-renderer') ? document.querySelector('#owner-name.ytd-video-owner-renderer').innerText : document.innerText,
             }
         }
-    })()`;
+    })()`,
+     connectionNotice = `let notice = document.createElement('div'),
+        close_btn = document.createElement('span');
+        notice.className = 'error-notice';
+        notice.setAttribute('style', 'position: fixed; top: 0px; background: #ef5858; border-bottom: 3px solid #e61616; border-radius: 3px; z-index: 101; color: white; width: 99%; line-height: 2em; text-align: center; margin: 0.5%;');
+        close_btn.className = 'close-btn';
+        close_btn.innerHTML = '&times;';
+        close_btn.setAttribute('style', 'float: right; margin-right: 0.5%; font-size: 20px;');
+        notice.innerHTML = 'Failed to connect to Discord IRC. Connection timed out.';
+        notice.appendChild(close_btn);
+        document.body.appendChild(notice);
+        notice.onclick = () => document.body.removeChild(notice);
+        setTimeout(() => document.body.removeChild(notice), 15E3);`;
 
 
     async function checkYoutube() {
@@ -54,6 +67,8 @@ let appID = '422113307038580751',
 
             if (title === "rezendeevil") {
                smallImageKey = 'rezendeevil';
+            }else if(title === "AssopraFitas") {
+                smallImageKey = 'assoprafitas';
             } else {
                 smallImageKey = 'play';
             }
