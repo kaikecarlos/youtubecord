@@ -3,7 +3,6 @@ var {BrowserWindow, app} = require('electron');
 var widevine = require('electron-widevinecdm');
 const {Client} = require('discord-rpc');
 const rpc      = new Client({transport: 'ipc'})
-widevine.load(app);
 let appID = '422113307038580751',
     mainWindow,
     smallImageKey,
