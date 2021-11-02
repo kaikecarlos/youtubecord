@@ -1,7 +1,7 @@
 # youtubecord
 
 
-### First, thanks to [Nirewen#9011](https://github.com/nirewen/discord-netflix) who make the source code base, thanks!!
+### First, thanks to [Nirewen#9011](https://github.com/nirewen/discord-netflix) who made the source code base, thanks!!
 
 ## Installation
 
